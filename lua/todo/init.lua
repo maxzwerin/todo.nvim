@@ -40,6 +40,9 @@ local function open_floating_file(target_file)
     vim.bo[buf].swapfile = false
 
     local win = vim.api.nvim_open_win(buf, true, win_config())
+    vim.wo[win].number = false
+    vim.wo[win].relativenumber = false
+    vim.wo[win].fillchars = "eob: "
 
     vim.api.nvim_buf_set_keymap(buf, "n", "q", "", {
         noremap = true,
